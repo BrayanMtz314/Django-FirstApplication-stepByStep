@@ -1,0 +1,12 @@
+<a href="{% url 'polls:question' %}">Question Page</a>
+<a href="{% url 'polls:choice' %}">Choice Page</a>
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
